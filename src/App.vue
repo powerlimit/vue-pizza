@@ -1,13 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <vue-progress-bar></vue-progress-bar>
+    <MainLayout>
+      <router-view/>
+    </MainLayout>
   </div>
 </template>
 
-<style lang="scss">
+<script lang="ts">
+import Vue from 'vue';
+import MainLayout from '@/components/layouts/MainLayout.vue';
 
+export default Vue.extend({
+  components: {
+    MainLayout,
+  },
+});
+</script>
+
+<style lang="scss">
+@import "assets/scss/variables";
+#app {
+  background: $body-bg;
+  min-height: 100vh;
+  padding: 45px;
+}
 </style>

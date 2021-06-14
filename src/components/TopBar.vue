@@ -1,0 +1,69 @@
+<template>
+  <div class="top-bar d-flex align-center justify-between">
+    <router-link to="/" class="d-flex home-link">
+      <img src="../assets/images/logo.svg" class="logo" alt="">
+      <div>
+        <h1 class="h1">VUE PIZZA</h1>
+        <span>самая вкусная пицца во вселенной</span>
+      </div>
+    </router-link>
+    <router-link :to="{name: 'Cart'}" class="cart-btn">
+      <span class="total">0 ₽</span>
+      <span><img src="../assets/images/shopping-cart.svg" alt=""> 0</span>
+    </router-link>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TopBar',
+};
+</script>
+
+<style scoped lang="scss">
+@import "../assets/scss/variables";
+
+.top-bar {
+  padding: 54px 38px 35px 77px;
+  border-bottom: 1px solid $muted;
+}
+.home-link {
+  text-decoration: none !important;
+  span {
+    font-size: 16px;
+    line-height: 19px;
+    color: #7B7B7B;
+  }
+}
+.logo {
+  margin-right: 17px;
+}
+.h1 {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #181818;
+}
+.cart-btn {
+  height: 50px;
+  background: $primary;
+  border-radius: $btn-border-radius;
+  padding: 15px 0;
+  color: #ffffff;
+  text-decoration: none !important;
+  line-height: 20px;
+  font-weight: 700;
+  span {
+    display: inline-block;
+    padding: 0 15px;
+    &.total {
+      border-right: 1px solid #fff;
+    }
+  }
+  img {
+    transform: translateY(3px);
+  }
+}
+</style>

@@ -17,6 +17,20 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['*.vue'],
+      rules: {
+        'class-methods-use-this': 'off',
+        'no-shadow': 'off'
+      }
+    },
+    {
+      files: ['*.ts'],
+      rules: {
+        'import/prefer-default-export': 'off',
+        'no-shadow': 'off'
+      }
+    },
+    {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
         '**/tests/unit/**/*.spec.{j,t}s?(x)',
