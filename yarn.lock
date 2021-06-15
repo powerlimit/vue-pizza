@@ -1145,6 +1145,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@smartweb/vue-flash-message@^0.6.10":
+  version "0.6.10"
+  resolved "https://registry.yarnpkg.com/@smartweb/vue-flash-message/-/vue-flash-message-0.6.10.tgz#b091d74adf55e1e67ea0debcbe14a92f9440b7a6"
+  integrity sha512-ceDUUzXI6FDscev36kZQvc2BO+MayOt6uJ2HSh9zoOkfa0PVIhmaoB56InlTTsK7MmlSIvPJpRB+Habdx3MtNw==
+
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@soda/friendly-errors-webpack-plugin/-/friendly-errors-webpack-plugin-1.8.0.tgz#84751d82a93019d5c92c0cf0e45ac59087cd2240"

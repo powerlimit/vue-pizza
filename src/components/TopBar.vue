@@ -8,7 +8,7 @@
       </div>
     </router-link>
     <router-link :to="{name: 'Cart'}" class="cart-btn">
-      <span class="total">{{total.totalPrice}} ₽</span>
+      <span class="total">{{total.totalPrice.toFixed(2)}} ₽</span>
       <span><img src="../assets/images/shopping-cart.svg" alt=""> {{total.totalQty}}</span>
     </router-link>
   </div>

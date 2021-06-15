@@ -4,7 +4,7 @@
       <PizzaFilter @on-filter="handleFilter" />
       <PizzaSort @on-sort="handleSort" />
     </div>
-    <h1 class="h1">Все пиццы</h1>
+    <h1 class="h1" style="margin-top: 32px;">Все пиццы</h1>
     <div class="placeholder" v-if="loading">
       Загрузка...
     </div>

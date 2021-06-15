@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+import { Pizza } from '@/types';
 
 const apiClient = axios.create({
   baseURL: 'https://my-json-server.typicode.com/powerlimit/vue-pizza',
@@ -10,7 +11,7 @@ const apiClient = axios.create({
 });
 
 export default {
-  getItems(): Promise<any> {
+  getItems(): Promise<AxiosResponse<Pizza[]>> {
     return apiClient.get('/pizza');
   },
 };

@@ -22,6 +22,8 @@ module.exports = {
         'class-methods-use-this': 'off',
         'no-shadow': 'off',
         'no-plusplus': 'off',
+        'no-restricted-globals': 'off',
+        'no-alert': 'off',
       }
     },
     {

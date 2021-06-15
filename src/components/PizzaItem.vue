@@ -45,7 +45,7 @@ export default class PizzaItem extends Vue {
     return (this.item.price * this.dough.multiplier * this.size.multiplier).toFixed(2);
   }
 
-  get selectedItem(): Pizza {
+  get selectedItem(): Pizza | undefined {
     return this.$store.getters.getSelectedPizzaById(this.item.id);
   }
 
@@ -63,6 +63,10 @@ export default class PizzaItem extends Vue {
       size: this.size,
       dough: this.dough,
       qty: 1,
+    });
+    this.flashMessage.success({
+      title: 'Пицца добавлена в корзину',
+      contentClass: 'flash-message',
     });
   }
 }

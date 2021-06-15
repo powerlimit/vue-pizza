@@ -1,15 +1,16 @@
 import Vue from 'vue';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import VueProgressBar from 'vue-progressbar';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import vClickOutside from 'v-click-outside';
+import FlashMessage from '@smartweb/vue-flash-message';
 
 import App from './App.vue';
 import router from './router';
 import store from './store';
 import './assets/scss/main.scss';
+
+Vue.use(FlashMessage);
 
 Vue.use(vClickOutside);
 

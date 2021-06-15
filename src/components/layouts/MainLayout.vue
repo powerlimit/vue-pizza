@@ -27,6 +27,7 @@ export default Vue.extend({
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
+    min-height: 840px;
   }
   .content {
     padding: 40px 38px 35px 77px;

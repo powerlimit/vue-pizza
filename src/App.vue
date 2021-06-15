@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <vue-progress-bar></vue-progress-bar>
+    <flash-message position="right top" strategy="multiple"></flash-message>
     <MainLayout>
       <router-view/>
     </MainLayout>

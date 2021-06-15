@@ -11,4 +11,5 @@ export const getters:GetterTree<CartState, RootState> = {
 
     return { totalQty, totalPrice };
   },
+
 };
