@@ -1,5 +1,6 @@
 <template>
   <div class="cart">
+    {{selectedItems}}
     <div class="empty flex-box align-center text-center">
       <h1 class="h1 d-flex align-center">
         Корзина пустая&nbsp;<img src="../assets/images/smile.png" alt="">
@@ -13,6 +14,20 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import {
+  Component, Vue,
+} from 'vue-property-decorator';
+import { Pizza } from '@/types';
+
+@Component({})
+export default class Cart extends Vue {
+  get selectedItems(): Pizza[] {
+    return this.$store.state.cart.selected;
+  }
+}
+</script>
 
 <style scoped lang="scss">
 @import "../assets/scss/variables";

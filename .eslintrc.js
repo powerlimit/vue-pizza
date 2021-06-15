@@ -20,14 +20,16 @@ module.exports = {
       files: ['*.vue'],
       rules: {
         'class-methods-use-this': 'off',
-        'no-shadow': 'off'
+        'no-shadow': 'off',
+        'no-plusplus': 'off',
       }
     },
     {
       files: ['*.ts'],
       rules: {
         'import/prefer-default-export': 'off',
-        'no-shadow': 'off'
+        'no-shadow': 'off',
+        'no-plusplus': 'off',
       }
     },
     {

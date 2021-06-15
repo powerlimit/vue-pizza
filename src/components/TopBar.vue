@@ -8,16 +8,29 @@
       </div>
     </router-link>
     <router-link :to="{name: 'Cart'}" class="cart-btn">
-      <span class="total">0 ₽</span>
-      <span><img src="../assets/images/shopping-cart.svg" alt=""> 0</span>
+      <span class="total">{{total.totalPrice}} ₽</span>
+      <span><img src="../assets/images/shopping-cart.svg" alt=""> {{total.totalQty}}</span>
     </router-link>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TopBar',
-};
+<script lang="ts">
+import {
+  Component, Vue,
+} from 'vue-property-decorator';
+import PizzaItemOptions from '@/components/PizzaItemOptions.vue';
+import { TotalAmount } from '@/store/cart/types';
+
+@Component({
+  components: {
+    PizzaItemOptions,
+  },
+})
+export default class TopBar extends Vue {
+  get total(): TotalAmount {
+    return this.$store.getters.getTotal;
+  }
+}
 </script>
 
 <style scoped lang="scss">

@@ -1,16 +1,14 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
-import '../assets/scss/main.scss';
+import Vuex, { StoreOptions } from 'vuex';
+import { RootState } from '@/store/types';
+import { cart } from '@/store/cart';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store: StoreOptions<RootState> = {
   modules: {
+    cart,
   },
-});
+};
+
+export default new Vuex.Store(store);

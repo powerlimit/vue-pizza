@@ -29,7 +29,7 @@ import ApiService from '@/serveces/ApiService';
 import PizzaItem from '@/components/PizzaItem.vue';
 import { cloneDeep } from 'lodash';
 import { FILTER_OPTIONS, SORT_OPTIONS } from '@/constants';
-import { FilterOption, Pizza } from '@/types';
+import { FilterOption, Pizza, PizzaSortFields } from '@/types';
 import PizzaFilter from '../components/PizzaFilter.vue';
 import PizzaSort from '../components/PizzaSort.vue';
 
@@ -45,9 +45,9 @@ export default class Home extends Vue {
 
   sortOption: FilterOption = SORT_OPTIONS[0];
 
-  items = [];
+  items:Pizza[] = [];
 
-  filtered = [];
+  filtered:Pizza[] = [];
 
   loading = true;
 
@@ -66,7 +66,7 @@ export default class Home extends Vue {
     if (this.filterOption.value) {
       items = items.filter((i: Pizza) => i.type === this.filterOption.value);
     }
-    const sortField = this.sortOption.value;
+    const sortField = this.sortOption.value as keyof PizzaSortFields;
     if (sortField) {
       items = items.sort((a, b) => (a[sortField] < b[sortField] ? -1 : 1));
     }

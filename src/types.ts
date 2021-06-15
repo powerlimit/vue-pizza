@@ -1,3 +1,8 @@
+export interface PizzaOption {
+  title: string;
+  multiplier: number;
+}
+
 export interface Pizza {
   id: number;
   title: string;
@@ -5,11 +10,15 @@ export interface Pizza {
   image: string;
   type: string;
   frequency: number;
+  qty?: number;
+  size?: PizzaOption;
+  dough?: PizzaOption;
 }
 
-export interface PizzaOption {
+export interface PizzaSortFields {
   title: string;
-  multiplier: number;
+  price: string;
+  frequency: string;
 }
 
 export interface FilterOption {

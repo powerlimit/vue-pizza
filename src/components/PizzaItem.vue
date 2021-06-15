@@ -8,8 +8,9 @@
     />
     <div class="d-flex justify-between align-center">
       <strong>{{totalPrice}} ₽</strong>
-      <button class="clean-btn add-btn">
+      <button @click="handleAddToCart" class="clean-btn add-btn">
         + Добавить
+        <span class="selected-count" v-if="selectedItem">{{selectedItem.qty}}</span>
       </button>
     </div>
   </div>
@@ -17,7 +18,7 @@
 
 <script lang="ts">
 import {
-  Component, Emit, Vue, Watch, Prop,
+  Component, Vue, Prop,
 } from 'vue-property-decorator';
 import { Pizza, PizzaOption } from '@/types';
 import { PropType } from 'vue';
@@ -40,6 +41,14 @@ export default class PizzaItem extends Vue {
 
   size = SIZE_OPTIONS[0]
 
+  get totalPrice(): string {
+    return (this.item.price * this.dough.multiplier * this.size.multiplier).toFixed(2);
+  }
+
+  get selectedItem(): Pizza {
+    return this.$store.getters.getSelectedPizzaById(this.item.id);
+  }
+
   handleDoughSelect(val: PizzaOption): void {
     this.dough = val;
   }
@@ -48,8 +57,13 @@ export default class PizzaItem extends Vue {
     this.size = val;
   }
 
-  get totalPrice(): string {
-    return (this.item.price * this.dough.multiplier * this.size.multiplier).toFixed(2);
+  handleAddToCart(): void {
+    this.$store.commit('ADD_TO_CART', {
+      ...this.item,
+      size: this.size,
+      dough: this.dough,
+      qty: 1,
+    });
   }
 }
 </script>
@@ -70,6 +84,19 @@ export default class PizzaItem extends Vue {
   margin-bottom: 20px;
 }
 
+.selected-count {
+  display: inline-block;
+  width: 22px;
+  line-height: 22px;
+  background: $primary;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all .3s ease;
+  margin-left: 3px;
+}
+
 .add-btn {
   border-radius: $btn-border-radius;
   height: 40px;
@@ -82,6 +109,10 @@ export default class PizzaItem extends Vue {
   &:hover {
     background: $primary;
     color: #fff;
+    .selected-count {
+      color: $primary;
+      background: #fff;
+    }
   }
 }
 </style>
