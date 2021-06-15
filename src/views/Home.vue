@@ -4,7 +4,7 @@
       <PizzaFilter @on-filter="handleFilter" />
       <PizzaSort @on-sort="handleSort" />
     </div>
-    <h2 class="h2">Все пиццы</h2>
+    <h1 class="h1">Все пиццы</h1>
     <div class="placeholder" v-if="loading">
       Загрузка...
     </div>
@@ -87,12 +87,6 @@ export default class Home extends Vue {
 </script>
 
 <style scoped lang="scss">
-.h2 {
-  font-weight: bold;
-  font-size: 32px;
-  letter-spacing: 0.01em;
-  margin-top: 32px;
-}
 
 .grid {
   display: grid;

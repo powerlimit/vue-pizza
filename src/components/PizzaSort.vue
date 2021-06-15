@@ -8,7 +8,7 @@
       Сортировка по:
     </strong>
     <span class="selected">{{ selectedOption.label }}</span>
-    <ul v-click-outside="onClickOutside" class="sort-options" v-if="opened">
+    <ul v-click-outside="closeModal" class="sort-options" v-if="opened">
       <li
         v-for="option in sortOptions"
         :key="option.label"
@@ -39,7 +39,7 @@ export default class PizzaSort extends Vue {
 
   opened = false;
 
-  onClickOutside(): void {
+  closeModal(): void {
     this.opened = false;
   }
 

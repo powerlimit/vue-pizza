@@ -3,7 +3,7 @@
     <router-link to="/" class="d-flex home-link">
       <img src="../assets/images/logo.svg" class="logo" alt="">
       <div>
-        <h1 class="h1">VUE PIZZA</h1>
+        <strong class="title">VUE PIZZA</strong>
         <span>самая вкусная пицца во вселенной</span>
       </div>
     </router-link>
@@ -38,13 +38,14 @@ export default {
 .logo {
   margin-right: 17px;
 }
-.h1 {
+.title {
   font-weight: 800;
   font-size: 24px;
   line-height: 29px;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: #181818;
+  display: block;
 }
 .cart-btn {
   height: 50px;
