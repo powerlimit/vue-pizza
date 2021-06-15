@@ -4,7 +4,7 @@
       <button
         data-test="pizza-filter"
         :class="{selected: (selectedOption.value === option.value)}"
-        class="filter-btn"
+        class="btn-filter"
         @click="setFilter(option)"
       >{{ option.label }}
       </button>
@@ -35,7 +35,7 @@ export default class PizzaFilter extends Vue {
 <style scoped lang="scss">
 @import "../assets/scss/variables";
 
-.filter-btn {
+.btn-filter {
   border: 0;
   background: $muted;
   border-radius: $btn-border-radius;

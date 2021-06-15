@@ -5,6 +5,6 @@ export interface CartState {
 }
 
 export interface TotalAmount {
-  totalQty: number;
-  totalPrice: number;
+  qty: number;
+  price: string;
 }

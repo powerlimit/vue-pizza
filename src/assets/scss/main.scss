@@ -50,7 +50,7 @@ button {
   }
 }
 
-.clean-btn {
+.btn-clean {
   border: 0;
   background: transparent;
   padding: 0;
@@ -65,4 +65,12 @@ button {
 
 .flash-message {
   padding: 30px;
+}
+
+.mt-54 {
+  margin-top: 54px;
+}
+
+.text-primary {
+  color: $primary;
 }

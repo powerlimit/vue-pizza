@@ -5,7 +5,7 @@
         v-for="dOpt in doughOptions"
         :key="dOpt.title"
         @click="selectDough(dOpt)"
-        class="clean-btn col"
+        class="btn-clean col"
         :class="{selected: (dOptSelected === dOpt)}"
         data-test="dough-btn"
       >{{ dOpt.title }}
@@ -16,7 +16,7 @@
         v-for="sOpt in sizeOptions"
         :key="sOpt.title"
         @click="selectSize(sOpt)"
-        class="clean-btn col"
+        class="btn-clean col"
         :class="{selected: (sOptSelected === sOpt)}"
         data-test="size-btn"
       >{{ sOpt.title }} см.

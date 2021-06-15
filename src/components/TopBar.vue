@@ -7,9 +7,9 @@
         <span>самая вкусная пицца во вселенной</span>
       </div>
     </router-link>
-    <router-link :to="{name: 'Cart'}" class="cart-btn">
-      <span class="total">{{total.totalPrice.toFixed(2)}} ₽</span>
-      <span><img src="../assets/images/shopping-cart.svg" alt=""> {{total.totalQty}}</span>
+    <router-link :to="{name: 'Cart'}" class="btn-cart">
+      <span class="total">{{total.price}} ₽</span>
+      <span><img src="../assets/images/shopping-cart.svg" alt=""> {{total.qty}}</span>
     </router-link>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default class TopBar extends Vue {
   color: #181818;
   display: block;
 }
-.cart-btn {
+.btn-cart {
   height: 50px;
   background: $primary;
   border-radius: $btn-border-radius;

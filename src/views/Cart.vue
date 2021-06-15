@@ -1,23 +1,12 @@
 <template>
   <div class="cart">
-    <div class="empty flex-box align-center text-center" v-if="!selectedItems.length">
-      <h1 class="h1 d-flex align-center">
-        Корзина пустая&nbsp;<img src="../assets/images/smile.png" alt="">
-      </h1>
-      <p>
-        Вероятней всего, вы не заказывали ещё пиццу. <br>
-        Для того, чтобы заказать пиццу, перейди на главную страницу.
-      </p>
-      <img class="cart-img" src="../assets/images/cart-empty.svg" alt="">
-      <router-link class="back-btn" to="/">Вернуться назад</router-link>
-    </div>
-    <div class="cart-body">
+    <div class="cart-body" v-if="selectedItems.length">
       <div class="d-flex align-center justify-between">
         <h1 class="h1">
           <img src="../assets/images/iconfinder_shopping-cart.svg" alt="">&nbsp;
           Корзина
         </h1>
-        <button class="clean-btn clear-cart-btn" @click="handleClearCart">
+        <button class="btn-clean btn-clear-cart" @click="handleClearCart">
           <img src="../assets/images/trash.svg" alt=""> Очистить корзину
         </button>
       </div>
@@ -27,6 +16,30 @@
         :item="item"
         :index="idx"
       />
+      <div class="d-flex justify-between total mt-54">
+        <span>Всего пицц: <strong>{{total.qty}} шт.</strong></span>
+        <span>
+          Сумма заказа:
+          <strong class="text-primary">{{total.price}} ₽</strong>
+        </span>
+      </div>
+      <div class="d-flex justify-between mt-54">
+        <router-link to="/" class="btn-back-outlined btn">
+          <img src="../assets/images/angle.svg" alt=""> Вернуться назад
+        </router-link>
+        <button class="btn btn-clean btn-primary" @click="handleCheckout">Оплатить сейчас</button>
+      </div>
+    </div>
+    <div v-else class="empty flex-box align-center text-center">
+      <h1 class="h1 d-flex align-center">
+        Корзина пустая&nbsp;<img src="../assets/images/smile.png" alt="">
+      </h1>
+      <p>
+        Вероятней всего, вы не заказывали ещё пиццу. <br>
+        Для того, чтобы заказать пиццу, перейди на главную страницу.
+      </p>
+      <img class="cart-img" src="../assets/images/cart-empty.svg" alt="">
+      <router-link class="btn-back" to="/">Вернуться назад</router-link>
     </div>
   </div>
 </template>
@@ -37,6 +50,7 @@ import {
 } from 'vue-property-decorator';
 import { Pizza } from '@/types';
 import CartItem from '@/components/CartItem.vue';
+import { TotalAmount } from '@/store/cart/types';
 
 @Component({
   components: { CartItem },
@@ -46,11 +60,23 @@ export default class Cart extends Vue {
     return this.$store.state.cart.selected;
   }
 
+  get total(): TotalAmount {
+    return this.$store.getters.getTotal;
+  }
+
   handleClearCart(): void {
     const confirmed = confirm('Вы действительно хотите очистить корзину?');
     if (confirmed) {
       this.$store.commit('CLEAR_CART');
     }
+  }
+
+  handleCheckout(): void {
+    this.flashMessage.success({
+      title: 'Ваш заказ оформлен успешно!',
+      contentClass: 'flash-message',
+    });
+    this.$store.commit('CLEAR_CART');
   }
 }
 </script>
@@ -79,7 +105,7 @@ p {
   color: #777777;
 }
 
-.back-btn {
+.btn-back {
   background: $dark;
   color: #ffffff;
   text-decoration: none !important;
@@ -92,9 +118,40 @@ p {
   }
 }
 
-.clear-cart-btn {
+.btn-clear-cart {
   color: #B6B6B6;
   display: flex;
   align-items: center;
+}
+.total {
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+.btn {
+  border-radius: $btn-border-radius;
+  width: 211px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  transition: all .3s ease;
+  font-weight: bold;
+  &:hover {
+    box-shadow: 0 3px 3px rgba(#D0D0D0, .8);
+  }
+  img {
+    margin-right: 5px;
+  }
+  &-back-outlined {
+    border: 1px solid #CACACA;
+    color: #CACACA;
+  }
+  &-primary {
+    color: #fff;
+    background: $primary;
+  }
 }
 </style>

@@ -16,7 +16,7 @@
         <button
           data-test="sort-btn"
           @click="setSort(option)"
-          class="clean-btn">
+          class="btn-clean">
           {{ option.label }}
         </button>
       </li>

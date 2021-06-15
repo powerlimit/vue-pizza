@@ -9,7 +9,10 @@ export const getters:GetterTree<CartState, RootState> = {
     const totalPrice = selected.reduce((acc, val) => acc
       + val.qty * val.size.multiplier * val.dough.multiplier * val.price, 0);
 
-    return { totalQty, totalPrice };
+    return {
+      qty: totalQty,
+      price: totalPrice.toFixed(2),
+    };
   },
 
 };

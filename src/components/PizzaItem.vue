@@ -8,7 +8,7 @@
     />
     <div class="d-flex justify-between align-center">
       <strong>{{totalPrice}} ₽</strong>
-      <button @click="handleAddToCart" class="clean-btn add-btn">
+      <button @click="handleAddToCart" class="btn-clean btn-add">
         + Добавить
         <span class="selected-count" v-if="selectedItem">{{selectedItem.qty}}</span>
       </button>
@@ -101,7 +101,7 @@ export default class PizzaItem extends Vue {
   margin-left: 3px;
 }
 
-.add-btn {
+.btn-add {
   border-radius: $btn-border-radius;
   height: 40px;
   line-height: 40px;
