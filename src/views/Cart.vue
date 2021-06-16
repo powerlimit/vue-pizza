@@ -16,7 +16,7 @@
         :item="item"
         :index="idx"
       />
-      <div class="d-flex justify-between total mt-54">
+      <div class="total mt-54">
         <span>Всего пицц: <strong>{{total.qty}} шт.</strong></span>
         <span>
           Сумма заказа:
@@ -82,7 +82,7 @@ export default class Cart extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/scss/variables";
+@import "../assets/scss/mixins";
 .cart {
   &-img {
     margin-bottom: 74px;
@@ -128,6 +128,11 @@ p {
   line-height: 27px;
   letter-spacing: 0.01em;
   color: #000000;
+  display: flex;
+  justify-content: space-between;
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
 }
 .btn {
   border-radius: $btn-border-radius;

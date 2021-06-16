@@ -1,7 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import PizzaFilter from '@/components/PizzaFilter.vue';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vClickOutside from 'v-click-outside';
 
 const localVue = createLocalVue();

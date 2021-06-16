@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import VueProgressBar from 'vue-progressbar';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vClickOutside from 'v-click-outside';
 import FlashMessage from '@smartweb/vue-flash-message';
 
