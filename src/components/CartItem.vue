@@ -6,11 +6,11 @@
       <p class="p">{{item.dough.title}} тесто, {{item.size.title}}см.</p>
     </div>
     <div class="change-qty-wrap col">
-      <button class="btn-clean btn change-qty" @click="subtractQty">
+      <button data-test="subtract-qty" class="btn-clean btn change-qty" @click="subtractQty">
         <img src="../assets/images/minus.svg" alt="">
       </button>
-      <span>{{item.qty}}</span>
-      <button class="btn-clean btn change-qty" @click="addQty">
+      <span data-test="item-qty">{{item.qty}}</span>
+      <button data-test="add-qty" class="btn-clean btn change-qty" @click="addQty">
         <img src="../assets/images/plus.svg" alt="">
       </button>
     </div>
@@ -42,7 +42,7 @@ export default class CartItem extends Vue {
     type: Number,
     required: true,
   })
-  readonly index: Pizza
+  readonly index: number
 
   get amount(): number {
     const {
