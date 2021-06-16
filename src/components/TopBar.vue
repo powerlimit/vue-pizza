@@ -4,7 +4,7 @@
       <img src="../assets/images/logo.svg" class="logo" alt="">
       <div>
         <strong class="title">VUE PIZZA</strong>
-        <span>самая вкусная пицца во вселенной</span>
+        <span>самая вкусная пицца во&nbsp;вселенной</span>
       </div>
     </router-link>
     <router-link :to="{name: 'Cart'}" class="btn-cart">
@@ -35,10 +35,18 @@ export default class TopBar extends Vue {
 
 <style scoped lang="scss">
 @import "../assets/scss/variables";
+@import "../assets/scss/mixins";
 
 .top-bar {
   padding: 54px 38px 35px 77px;
   border-bottom: 1px solid $muted;
+  @include media-breakpoint-down(xl) {
+    padding: 30px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 15px;
+  }
 }
 .home-link {
   text-decoration: none !important;
@@ -69,6 +77,7 @@ export default class TopBar extends Vue {
   text-decoration: none !important;
   line-height: 20px;
   font-weight: 700;
+  white-space: nowrap;
   span {
     display: inline-block;
     padding: 0 15px;

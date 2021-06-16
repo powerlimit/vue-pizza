@@ -21,9 +21,13 @@ export default Vue.extend({
 
 <style lang="scss">
 @import "assets/scss/variables";
+@import "assets/scss/mixins";
 #app {
   background: $body-bg;
   min-height: 100vh;
   padding: 45px;
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
 }
 </style>

@@ -20,6 +20,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+@import "../../assets/scss/mixins";
   .container {
     max-width: 1340px;
     background: #FFFFFF;
@@ -28,8 +29,18 @@ export default Vue.extend({
     margin-left: auto;
     margin-right: auto;
     min-height: 840px;
+    @include media-breakpoint-down(sm) {
+      border-radius: 0;
+    }
   }
   .content {
     padding: 40px 38px 35px 77px;
+    @include media-breakpoint-down(xl) {
+      padding: 30px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 15px;
+    }
   }
 </style>

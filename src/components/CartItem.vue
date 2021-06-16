@@ -70,11 +70,16 @@ export default class CartItem extends Vue {
 
 <style scoped lang="scss">
 @import "../assets/scss/variables";
+@import "../assets/scss/mixins";
 
 img {
   width: 80px;
   height: auto;
   margin-right: 15px;
+  @include media-breakpoint-down(sm) {
+    flex-basis: 25%;
+    margin-bottom: 30px;
+  }
 }
 
 .p {
@@ -94,8 +99,18 @@ img {
   font-size: 22px;
   line-height: 27px;
   letter-spacing: 0.01em;
+  @include media-breakpoint-down(sm) {
+    flex-wrap: wrap;
+  }
   &-text {
     flex-basis: 50%;
+    @include media-breakpoint-down(lg) {
+      flex-basis: 33%;
+    }
+    @include media-breakpoint-down(sm) {
+      flex-basis: 70%;
+      margin-bottom: 30px;
+    }
   }
 }
 .btn {

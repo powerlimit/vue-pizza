@@ -81,7 +81,7 @@ export default class Home extends Vue {
         this.items = res.data;
         this.filterItems();
         this.$Progress.finish();
-      });
+      }).catch();
   }
 }
 </script>
