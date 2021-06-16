@@ -3,7 +3,7 @@ import CartItem from '@/components/CartItem.vue';
 import Vuex, { Store } from 'vuex';
 import { mutations } from '@/store/cart/mutations';
 import { RootState } from '@/store/types';
-import { PizzaFixture } from './constants';
+import { PizzaFixture } from './fixtures';
 
 const localVue = createLocalVue();
 

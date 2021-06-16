@@ -1,6 +1,6 @@
 import { mutations } from '@/store/cart/mutations';
 import { CartState } from '@/store/cart/types';
-import { PizzaFixture } from './constants';
+import { PizzaFixture } from './fixtures';
 
 const {
   ADD_TO_CART, INCREASE_QTY, CLEAR_CART, SUBTRACT_QTY, REMOVE_ITEM,

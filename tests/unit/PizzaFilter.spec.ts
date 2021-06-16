@@ -1,9 +1,17 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import PizzaFilter from '@/components/PizzaFilter.vue';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import vClickOutside from 'v-click-outside';
+
+const localVue = createLocalVue();
+localVue.use(vClickOutside);
 
 describe('PizzaSort.vue', () => {
   it('Emits event when clicked', async () => {
-    const wrapper = shallowMount(PizzaFilter);
+    const wrapper = shallowMount(PizzaFilter, {
+      localVue,
+    });
     const button = wrapper.findAll('[data-test=pizza-filter]').at(1);
     button.trigger('click');
     await wrapper.vm.$nextTick();
